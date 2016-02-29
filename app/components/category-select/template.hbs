@@ -1,4 +1,5 @@
 {{#x-select class="form-control" action="showPostForm"}}
+  {{#x-option value="" disabled="true" selected="true"}}Select a Sub-Category{{/x-option}}
   {{#each categoryOverlord.categories as |category|}}
     {{#x-option value=category}}{{category.name}}{{/x-option}}
   {{/each}}

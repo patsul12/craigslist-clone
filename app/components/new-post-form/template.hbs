@@ -1,4 +1,5 @@
 {{#x-select class="form-control" action="showCategories"}}
+  {{#x-option value="" disabled="true" selected="true"}}Select a Category{{/x-option}}
   {{#each model as |categoryOverlord|}}
     {{#x-option value=categoryOverlord}}{{categoryOverlord.name}}{{/x-option}}
   {{/each}}
@@ -7,5 +8,5 @@
   {{category-select categoryOverlord=currentOverlord showPostForm="showPostForm"}}
 {{/if}}
 {{#if showPostForm}}
-  {{post-form category=category createPost="createPost"}}
+  {{post-form category=currentCategory createPost="createPost"}}
 {{/if}}

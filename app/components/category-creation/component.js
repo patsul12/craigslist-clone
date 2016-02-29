@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   showCreateCategory: false,
   showCreateCategoryOverlord: false,
+  postingDetails: [{value: null}],
 
   actions: {
 
@@ -42,6 +43,10 @@ export default Ember.Component.extend({
 
     hideCreateCategoryOverlord() {
       this.set('showCreateCategoryOverlord', false);
+    },
+
+    addInput() {
+      this.get("postingDetails").addObject({value: null});
     }
   }
 });

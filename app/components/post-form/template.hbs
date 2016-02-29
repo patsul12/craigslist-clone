@@ -1,27 +1,32 @@
-<form>
+<form class="form-inline">
+  <h4>Contact Info</h4>
   <div class="form-group">
     <label for="email">Email</label>
-    {{input value=email id="email"}}
-    <label for="phoneNumber">Phone Number</label>
-    {{input value=phoneNumber id="phoneNumber"}}
+    {{input value=email id="email" class="form-control"}}
+    <label for="phone">Phone Number</label>
+    {{input value=phoneNumber id="phoneNumber" class="form-control"}}
   </div>
+  <h4>Post Info</h4>
   <div class="form-group">
     <label for="title">Posting Title</label>
-    {{input value=title id="title"}}
+    {{input value=title id="title" class="form-control"}}
     <label for="price">Price</label>
-    {{input value=price id="price"}}
+    {{input value=price id="price" class="form-control"}}
     <label for="location">Location</label>
-    {{input value=location id="location"}}
+    {{input value=location id="location" class="form-control"}}
   </div>
   <div class="form-group">
     <label for="body">Posting Body</label>
-    {{input value=body id="body"}}
+    {{textarea value=body id="body" class="form-control"}}
   </div>
+  <h4>Post Details</h4>
   <div class="form-group">
     {{#each category.postingDetails as |detail|}}
-      <label for="{{detail}}">{{detail}}</label>
-      {{input value=detail}}
+      <label for="{{detail.value}}">{{unbound detail.value}}</label>
+      {{input value=detail.value class="form-control"}}
     {{/each}}
   </div>
-  <button type="submit" class="btn btn-default" {{action 'createPost'}}>Enter</button>
+  <div class="form-group">
+    <button type="submit" class="btn btn-block btn-default" {{action 'createPost' category}}>Enter</button>
+  </div>
 </form>

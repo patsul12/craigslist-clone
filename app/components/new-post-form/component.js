@@ -19,6 +19,10 @@ export default Ember.Component.extend({
     showPostForm(category) {
       this.set('showPostForm', true);
       this.set('currentCategory', category);
+    },
+
+    createPost(params) {
+      this.sendAction("createPost", params);
     }
   }
 });

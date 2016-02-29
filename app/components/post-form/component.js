@@ -1,9 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-
   actions: {
-    createPost() {
+    createPost(category) {
       var params = {
         email: this.get('email') || '',
         phone: this.get('phone') || '',
@@ -12,11 +11,11 @@ export default Ember.Component.extend({
         location: this.get('location') || '',
         body: this.get('body') || '',
         images: this.get('images') || '',
-        details: this.get('details') || '',
+        details: category.get('postingDetails') || '',
         category: this.get('category') || '',
         timestamp: new Date().getTime()
       }
       this.sendAction("createPost", params);
-    }
+    },
   }
 });
