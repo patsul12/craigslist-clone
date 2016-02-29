@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-md-6 col-center">
+    {{#if showCreateCategory}}
+      <button class="btn btn-danger" {{action "hideCreateCategory"}}>Hide Form</button>
+    {{else}}
+      <button class="btn btn-default" {{action "showCreateCategory"}}>Create Category</button>
+    {{/if}}
+    {{#if showCreateCategoryOverlord}}
+      <button class="btn btn-danger" {{action "hideCreateCategoryOverlord"}}>Hide Form</button>
+    {{else}}
+      <button class="btn btn-default" {{action "showCreateCategoryOverlord"}}>Create Category Overlord</button>
+    {{/if}}
+  </div>
+</div>
+{{#if showCreateCategory}}
+  <div class="row">
+    <div class="col-md-6 col-center">
+      <form>
+        <label for="categoryName">Name</label>
+        {{input value=categoryName class="form-control"}}
+        <label for="postingDetails">Posting Details</label>
+        {{input value=postingDetails class="form-control"}}
+        <label for="categoryOverlord">Choose Your Overlord</label>
+        {{#x-select value=categoryOverlord class="form-control"}}
+          {{#each categoryOverlords as |categoryOverlord|}}
+            {{#x-option value=categoryOverlord}}{{categoryOverlord.name}}{{/x-option}}
+          {{/each}}
+        {{/x-select}}
+        <button type="submit" class="btn btn-block btn-success" {{action "createCategory"}}>Create Category</button>
+      </form>
+    </div>
+  </div>
+{{/if}}
+
+{{#if showCreateCategoryOverlord}}
+  <div class="row">
+    <div class="col-md-6 col-center">
+      <form>
+        <label for="categoryOverlordName">Name</label>
+        {{input value=categoryOverlordName class="form-control"}}
+        <button type="submit" class="btn btn-block btn-success" {{action "createCategoryOverlord"}}>Create Category Overlord</button>
+      </form>
+    </div>
+  </div>
+{{/if}}
